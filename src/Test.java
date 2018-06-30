@@ -1,9 +1,9 @@
 public class Test {
     public static void main(String[] a){
         System.out.println("Start Program...");
-        int[] arr = new int[]{5,7,7,8,8,10};
-        int target = 7;
-        ArraySolution as = new ArraySolution();
-        as.searchRange(arr, target);
+        ArraySolution arr = new ArraySolution();
+        int[] nums = new int[]{1,2,3,4,5,7,8,9,10};
+        int target = 6;
+        System.out.println(arr.searchInsert(nums, target));
     }
 }
