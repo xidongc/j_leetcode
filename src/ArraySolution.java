@@ -1,3 +1,5 @@
+import java.util.ArrayList;
+
 public class ArraySolution {
     public boolean searchMatrix(int[][] matrix, int target) {
         int rows = matrix.length;
@@ -94,4 +96,47 @@ public class ArraySolution {
         }
         return start;
     }
+
+    public int arrayNesting(int[] nums) {
+        ArrayList<Integer> ret = new ArrayList<>();
+        ArrayList<Integer> loop = new ArrayList<>();
+        int max_len = 0;
+        // default value is false
+        boolean[] bitmap = new boolean[nums.length];
+        for (int i=0; i<nums.length; i++){
+            loop.clear();
+            int tmp = i;
+            while (tmp < nums.length && tmp >=0 && !bitmap[tmp]){
+                bitmap[tmp] = true;
+                loop.add(nums[tmp]);
+                tmp = nums[tmp];
+            }
+            if(loop.size() > max_len){
+                ret = (ArrayList<Integer>) loop.clone();
+                max_len = loop.size();
+            }
+        }
+        System.out.println(ret);
+        return max_len;
+    }
+
+    public int findPeakElement(int[] nums) {
+        int start = 0;
+        int len = nums.length;
+        int end = len-1;
+        int mid;
+        while (start <= end){
+            mid = (start+end)/2;
+            if(mid > 0 && nums[mid-1] >= nums[mid]){
+                end = mid-1;
+            } else if(mid < len-1 && nums[mid+1] >= nums[mid]){
+                start = mid+1;
+            } else{
+                System.out.println(mid);
+                return mid;
+            }
+        }
+        return -1;
+    }
+
 }
