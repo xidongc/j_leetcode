@@ -24,6 +24,5 @@ public class TestRepeatedDNA {
         RepeatedDNA rd = new RepeatedDNA();
         ArrayList<String> result = new ArrayList<>(rd.findRepeatedDnaSequences(input));
         assertThat(result).isEqualTo(output);
-        System.out.println("test testFindRepeatedDnaSequences success");
     }
 }
