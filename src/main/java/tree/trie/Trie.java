@@ -47,4 +47,21 @@ class Trie {
         return node != null;
     }
 
+    String findLongestPrefix(String input) {
+        TrieNode node = root;
+        String longestPrefix = null;
+        for (int i=0; i<input.length(); ++i) {
+            if (node.contains(input.charAt(i))) {
+                node = node.get(input.charAt(i));
+                if (node.isEnd()) {
+                    longestPrefix = input.substring(0,i+1);
+                    break;
+                }
+            } else {
+                return null;
+            }
+        }
+        return longestPrefix;
+    }
+
 }
