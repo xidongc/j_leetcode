@@ -1,7 +1,5 @@
 package tree.binaryTree;
 
-import java.util.*;
-
 public class ConstructStringFromBT {
     public String tree2str(TreeNode t) {
         if (t == null) {
